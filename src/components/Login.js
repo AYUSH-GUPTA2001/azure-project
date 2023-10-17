@@ -147,7 +147,7 @@ export default function Login(){
       "city": city,
       "state":  state,
       "pincode":"123456",
-       "strategy":"
+       "strategy":""
     
     }
     
