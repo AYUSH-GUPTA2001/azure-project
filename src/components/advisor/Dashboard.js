@@ -135,8 +135,8 @@ const [fiveYrReturnsError,setFiveYrReturnsError]=useState(false)
       url:`https://investmentportal.azurewebsites.net/api/strategies/${advisorId}/By-AdvisorId?api-version=1`
     }).then(function(response){
     const list=response.data.strategies
-     list.map((e)=>setData([e.returnPercentageAfter6months
-      ,e.returnPercentageAfter1year,e.returnPercentageAfter3year,e.returnPercentageAfter5year]))
+     list.map((e)=>setData([e.investmentAmount
+      ,e.expectedAmount,e.amount,e.investmentAmount]))
      setListOfStrategies(list)
       console.log(list)
     
