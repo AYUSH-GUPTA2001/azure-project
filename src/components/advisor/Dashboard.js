@@ -9,6 +9,7 @@ import TextField from '@mui/material/TextField';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid'
+import CloseIcon from '@mui/icons-material/Close';
 import Collapse from '@mui/material/Collapse';
 import { BarChart } from '@mui/x-charts/BarChart';
 import CollapsibleTable from "./table";
@@ -65,10 +66,10 @@ function Dashboard(){
         )}
       </div>
       <div className="sidebar">
-        <h2>Investment Portal</h2>
+      <h1 id="logo">INCVEST</h1>
         <ul>
-          <li className="sidebar-item" onClick={() => handleOptionClick('ClientList')}> <i className="material-icons">pie_chart</i> <span>List of Clients</span></li>
-          <li className="sidebar-item" onClick={() => handleOptionClick('InvestmentStrategies')}><i className="material-icons">swap_horiz</i><span>Strategies</span></li>
+          <li className="sidebar-item" onClick={() => handleOptionClick('ClientList')} id={selectedOption === 'ClientList' ? 'active' : ''}> <i className="material-icons">pie_chart</i> <span>List of Clients</span></li>
+          <li className="sidebar-item" onClick={() => handleOptionClick('InvestmentStrategies')} id={selectedOption === 'InvestmentStrategies' ? 'active' : ''} ><i className="material-icons">swap_horiz</i><span>Strategies</span></li>
           {/* <li className="sidebar-item" onClick={() => handleOptionClick('Reports')}><i className="material-icons">description</i><span>Reports</span></li> */}
           {/* <li className="sidebar-item" onClick={() => handleOptionClick('Settings')}><i className="material-icons">settings</i><span>Settings</span></li> */}
         </ul>
@@ -92,6 +93,7 @@ function InvestmentStrategies( {advisorId} ) {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
+    borderRadius: '20px',
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -256,6 +258,7 @@ const handleModalSubmit=(event)=>{
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} >
+          <CloseIcon color="primary" onClick={handleClose} style={{ position: "absolute", top: "10px", right: "10px" }} />
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Create New Strategy For Client
           </Typography>
@@ -656,6 +659,7 @@ const requestsStyle = {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} >
+        <CloseIcon color="primary" onClick={handleClose} style={{ position: "absolute", top: "10px", right: "10px" }} />
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Enter Client ID to See Requests
           </Typography>
@@ -683,7 +687,9 @@ const requestsStyle = {
         onClose={handleRequestsClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-      ><Box sx={requestsStyle} ><TableContainer component={Paper}>
+      ><Box sx={requestsStyle} >
+        <CloseIcon color="primary" onClick={handleRequestsClose} style={{ position: "absolute", top: "10px", right: "10px" }} />
+        <TableContainer component={Paper}>
       <Table   aria-label="simple table">
         <TableHead>
         <TableRow >

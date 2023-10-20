@@ -3,6 +3,7 @@ import './Dashboard.css'
 import Collapse from '@mui/material/Collapse';
 import { BarChart } from '@mui/x-charts/BarChart';
 import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import image2 from '../../assets/women.png'
@@ -70,9 +71,9 @@ function Dashboard(){
       <div className="sidebar">
       <h1 id="logo">INCVEST</h1>
         <ul>
-          <li className="sidebar-item" onClick={() => handleOptionClick('Portfolio')}> <i className="material-icons">pie_chart</i> <span>Portfolio</span></li>
+          <li className="sidebar-item" onClick={() => handleOptionClick('Portfolio')} id={selectedOption==='Portfolio'?'active':''}>  <i className="material-icons">pie_chart</i> <span>Portfolio</span></li>
           {/* <li className="sidebar-item" onClick={() => handleOptionClick('Transactions')}><i className="material-icons">swap_horiz</i><span>Transactions</span></li> */}
-          <li className="sidebar-item" onClick={() => handleOptionClick('New Investment')}><i className="material-icons">description</i><span>New Investment</span></li>
+          <li className="sidebar-item" onClick={() => handleOptionClick('New Investment')} id={selectedOption==='New Investment'?'active':''}><i className="material-icons">description</i><span>New Investment</span></li>
           {/* <li className="sidebar-item" onClick={() => handleOptionClick('Settings')}><i className="material-icons">settings</i><span>Settings</span></li> */}
         </ul>
       </div>
@@ -408,7 +409,7 @@ const handleModalSubmit=()=>{
         aria-describedby="child-modal-description"
       >
         <Box sx={{ ...style, width: 300 }}>
-    
+        <CloseIcon color="primary" onClick={handleChildClose} style={{ position: "absolute", top: "10px", right: "10px" }} />
         <Typography id="modal-modal-title" variant="h6" component="h2">
             Choose Investment
           </Typography>
@@ -485,9 +486,10 @@ const handleModalSubmit=()=>{
         aria-describedby="modal-modal-description"
       >
         
-        <Box sx={style} > {message?<Typography id="modal-modal-title" variant="h6" component="h2">
+        <Box sx={style} > {message?<><CloseIcon color="primary" onClick={handleClose} style={{ position: "absolute", top: "10px", right: "10px" }} /><Typography id="modal-modal-title" variant="h6" component="h2">
             {message}
-          </Typography>:<>
+          </Typography></>:<>
+          <CloseIcon color="primary" onClick={handleClose} style={{ position: "absolute", top: "10px", right: "10px" }} />
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Please Fill Mandatory Fields For Getting Recommendations
           </Typography>
@@ -569,7 +571,10 @@ const handleModalSubmit=()=>{
         onClose={handleRecommendationsClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-      ><Box sx={recommendationStyle} ><TableContainer component={Paper}>
+      ><Box sx={recommendationStyle} >
+        <CloseIcon color="primary" onClick={handleRecommendationsClose} style={{ position: "absolute", top: "10px", right: "10px" }} />
+        <TableContainer component={Paper}>
+        
       <Table   aria-label="simple table">
         <TableHead>
         <TableRow >
