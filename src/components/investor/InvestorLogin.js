@@ -7,7 +7,7 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
-
+import CloseIcon from '@mui/icons-material/Close';
 import { useState  } from 'react';
 import axios from "axios";
 import Tab from '@mui/material/Tab';
@@ -485,9 +485,13 @@ export default function Login(){
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} >
-         {message?<Typography id="modal-modal-title" variant="h6" component="h2">
+         {message?<>
+          <CloseIcon color="primary" onClick={handleClose} style={{ position: "absolute", top: "10px", right: "10px" }} />
+         <Typography id="modal-modal-title" variant="h6" component="h2">
             {message}
-          </Typography>:<> <Typography id="modal-modal-title" variant="h6" component="h2">
+          </Typography></>:<> 
+          <CloseIcon color="primary" onClick={handleClose} style={{ position: "absolute", top: "10px", right: "10px" }} />
+          <Typography id="modal-modal-title" variant="h6" component="h2">
             Please Fill Mandatory Fields For Starting Investment
           </Typography>
           <Grid container spacing={2}>

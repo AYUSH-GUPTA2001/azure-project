@@ -17,7 +17,7 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import { useNavigate } from 'react-router-dom';
-
+import CloseIcon from '@mui/icons-material/Close';
 
 
 // import { PhoneInput } from 'react-international-phone';
@@ -424,6 +424,7 @@ export default function Login(){
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       ><Box sx={style} >
+        <CloseIcon color="primary" onClick={handleClose} style={{ position: "absolute", top: "10px", right: "10px" }} />
       <Typography id="modal-modal-title" variant="h6" component="h2">
         {message}
       </Typography></Box></Modal>
