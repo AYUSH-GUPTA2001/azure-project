@@ -137,8 +137,8 @@ const [fiveYrReturnsError,setFiveYrReturnsError]=useState(false)
       url:`https://investmentportal.azurewebsites.net/api/strategies/${advisorId}/By-AdvisorId?api-version=1`
     }).then(function(response){
     const list=response.data.strategies
-     list.map((e)=>setData([e.investmentAmount
-      ,e.expectedAmount,e.amount,e.investmentAmount]))
+     list.map((e)=>setData([e.sixMonReturns
+      ,e.oneYrReturns,e.threeYrReturns,e.fiveYrReturns]))
      setListOfStrategies(list)
       console.log(list)
     
@@ -209,10 +209,10 @@ const handleModalSubmit=(event)=>{
   "returnPercentage": amount,
   "investmentAmount": investmentAmount,
   "expectedAmount": expectedAmount,
-  "returnPercentageAfter6months": investmentAmount,
-  "returnPercentageAfter1year": expectedAmount,
-  "returnPercentageAfter3year": amount,
-  "returnPercentageAfter5year": investmentAmount,
+  "returnPercentageAfter6months": sixMonReturns,
+  "returnPercentageAfter1year": oneYrReturns,
+  "returnPercentageAfter3year": oneYrReturns,
+  "returnPercentageAfter5year": oneYrReturns,
   "status": Status,
   "timePeriod": "string",
   "remarks": "string"
