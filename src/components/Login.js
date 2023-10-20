@@ -94,40 +94,40 @@ export default function Login(){
     
         if (firstName === '') {
           setFirstNameError(true)
-          return
+          
       }
         if (lastName === '') {
           setLastNameError(true)
-          return
+          
       } 
         if(address===""){
           setAddressError(true)
-          return
+          
         }
         if (email === '') {
         setEmailError(true)
-        return
+        
       }
         if (phone === '') {
         setPhoneError(true)
-        return
+      
       }
     
       if (company === '') {
         setCompanyError(true)
-        return
+        
     }
       if (city === '') {
         setCityError(true)
-        return
+        
     } 
       if (state === '') {
       setStateError(true)
-      return
+      
     }
       if (password === '') {
       setPasswordError(true)
-      return
+      
     }
     if (confirmPassword === '') {
       setConfirmPasswordError(true)
@@ -189,7 +189,7 @@ export default function Login(){
   
       if (loginEmail === '') {
           setLoginEmailError(true)
-          return
+          
       }
       if (loginPassword === '') {
           setLoginPasswordError(true)
