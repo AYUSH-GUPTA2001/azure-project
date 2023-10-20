@@ -211,8 +211,8 @@ const handleModalSubmit=(event)=>{
   "expectedAmount": expectedAmount,
   "returnPercentageAfter6months": sixMonReturns,
   "returnPercentageAfter1year": oneYrReturns,
-  "returnPercentageAfter3year": oneYrReturns,
-  "returnPercentageAfter5year": oneYrReturns,
+  "returnPercentageAfter3year": threeYrReturns,
+  "returnPercentageAfter5year": fiveYrReturns,
   "status": Status,
   "timePeriod": "string",
   "remarks": "string"
