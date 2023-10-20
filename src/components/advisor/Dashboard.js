@@ -70,14 +70,14 @@ function Dashboard(){
         <ul>
           <li className="sidebar-item" onClick={() => handleOptionClick('ClientList')} id={selectedOption === 'ClientList' ? 'active' : ''}> <i className="material-icons">pie_chart</i> <span>List of Clients</span></li>
           <li className="sidebar-item" onClick={() => handleOptionClick('InvestmentStrategies')} id={selectedOption === 'InvestmentStrategies' ? 'active' : ''} ><i className="material-icons">swap_horiz</i><span>Strategies</span></li>
-          {/* <li className="sidebar-item" onClick={() => handleOptionClick('Reports')}><i className="material-icons">description</i><span>Reports</span></li> */}
+          <li className="sidebar-item" onClick={() => handleOptionClick('InvestmentRequests')} id={selectedOption === 'InvestmentRequests' ? 'active' : ''}><i className="material-icons">description</i><span>Investment Requests</span></li>
           {/* <li className="sidebar-item" onClick={() => handleOptionClick('Settings')}><i className="material-icons">settings</i><span>Settings</span></li> */}
         </ul>
       </div>
       <div className="content">
         {selectedOption === 'ClientList' && <ClientList advisorId={advisorId} />}
         {selectedOption === 'InvestmentStrategies' && <InvestmentStrategies advisorId={advisorId} />}
-        {selectedOption === 'Reports' && <ReportsContent />}
+        {selectedOption === 'InvestmentRequests' && <ReportsContent advisorId={advisorId}/>}
         {selectedOption === 'Settings' && <SettingsContent />}
       </div>
     </div>
@@ -161,39 +161,39 @@ const handleModalSubmit=(event)=>{
 
   if(strategyName===""){
     setStrategyNameError(true)
-    return
+    
   }
   if(clientId===""){
     setClientIdError(true)
-    return
+    
   }
   if(amount===""){
     setAmountError(true)
-    return
+    
   }
   if(Status===''){
     setStatusError(true)
-    return
+  
   }
   if(investmentAmount===""){
     setInvestmentAmountError(true)
-    return
+    
   }
   if(expectedAmount===""){
     setExpectedAmountError(true)
-    return
+    
   }
   if(sixMonReturns===""){
     setSixMonReturnsError(true)
-    return
+    
   }
   if(oneYrReturns===""){
     setOneYrReturnsError(true)
-    return
+    
   }
   if(threeYrReturns===""){
     setThreeYrReturnsError(true)
-    return
+    
   }
   if(fiveYrReturns===""){
     setFiveYrReturnsError(true)
@@ -757,11 +757,54 @@ const requestsStyle = {
   );
 }
 
-function ReportsContent() {
+function ReportsContent({advisorId}) {
+  const [listOfRequests,setListOfRequests] = useState([]) 
+
+  axios({
+    method:'get',
+    url:`https://localhost:7136/api/investments/advisor/${advisorId}`
+   }).then((response)=>{
+    
+    setListOfRequests(response.data)
+  console.log(listOfRequests)
+  
+    
+
+
+   },(error)=>{
+
+
+   })
   return (
-    <div>
-      <h1>Reports Content</h1>
-      {/* Add your reports content here */}
+    <div className="rectangle-div">
+     <TableContainer component={Paper}>
+      <Table   aria-label="simple table">
+        <TableHead>
+        <TableRow >
+          <TableCell>Client Id</TableCell>
+           <TableCell>Investment Amount</TableCell>
+            <TableCell>Time Period</TableCell>
+            <TableCell >Investment Type</TableCell>
+         
+          </TableRow>
+        </TableHead>
+        <TableBody>
+        {listOfRequests?.map((row) => 
+          
+          <React.Fragment >
+        <TableRow>
+          <TableCell>{row.clientId}</TableCell>
+          <TableCell>{row.investmentAmount}</TableCell>
+          <TableCell>{row.timePeriod}</TableCell>
+          <TableCell>{row.investmentType}</TableCell>
+          
+        </TableRow>
+      </React.Fragment>
+
+          )
+
+}
+          </TableBody></Table></TableContainer>
     </div>
   );
 }
