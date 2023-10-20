@@ -762,7 +762,7 @@ function ReportsContent({advisorId}) {
 
   axios({
     method:'get',
-    url:`https://localhost:7136/api/investments/advisor/${advisorId}`
+    url:`https://investmentportal.azurewebsites.net/api/investments/advisor/${advisorId}`
    }).then((response)=>{
     
     setListOfRequests(response.data)
