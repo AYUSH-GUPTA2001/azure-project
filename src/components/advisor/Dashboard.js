@@ -137,8 +137,8 @@ const [fiveYrReturnsError,setFiveYrReturnsError]=useState(false)
       url:`https://investmentportal.azurewebsites.net/api/strategies/${advisorId}/By-AdvisorId?api-version=1`
     }).then(function(response){
     const list=response.data.strategies
-     list.map((e)=>setData([e.sixMonReturns
-      ,e.oneYrReturns,e.threeYrReturns,e.fiveYrReturns]))
+     list.map((e)=>setData([e.returnPercentageAfter6months
+      ,e.returnPercentageAfter1year,e.returnPercentageAfter3year,e.returnPercentageAfter5year]))
      setListOfStrategies(list)
       console.log(list)
     
@@ -206,7 +206,7 @@ const handleModalSubmit=(event)=>{
   "amount": amount,
   "clientId": clientId,
   "advisorId": advisorId,
-  "returnPercentage": amount,
+  "returnPercentage": sixMonReturns,
   "investmentAmount": investmentAmount,
   "expectedAmount": expectedAmount,
   "returnPercentageAfter6months": sixMonReturns,
@@ -487,11 +487,7 @@ const handleModalSubmit=(event)=>{
           label:'Time'
         },
       ]}
-      yAxis={[
-        {
-          label:'% Returns'
-        }
-      ]}
+      
       series={[
         {
           color:'#b7d9ff',
@@ -762,7 +758,7 @@ function ReportsContent({advisorId}) {
 
   axios({
     method:'get',
-    url:`https://investmentportal.azurewebsites.net/api/investments/advisor/${advisorId}`
+    url:`https://investmentportal.azurewebsites.net/api/investments/advisor/${advisorId}?api-version=1`
    }).then((response)=>{
     
     setListOfRequests(response.data)
