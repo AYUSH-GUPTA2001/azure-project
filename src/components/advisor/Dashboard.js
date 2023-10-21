@@ -137,8 +137,7 @@ const [fiveYrReturnsError,setFiveYrReturnsError]=useState(false)
       url:`https://investmentportal.azurewebsites.net/api/strategies/${advisorId}/By-AdvisorId?api-version=1`
     }).then(function(response){
     const list=response.data.strategies
-     list.map((e)=>setData([e.returnPercentageAfter6months
-      ,e.returnPercentageAfter1year,e.returnPercentageAfter3year,e.returnPercentageAfter5year]))
+     
      setListOfStrategies(list)
       console.log(list)
     
@@ -444,11 +443,11 @@ const handleModalSubmit=(event)=>{
             <TableCell />
             
             <TableCell>Investment Name</TableCell>
-            <TableCell align='right'>Client Id&nbsp;</TableCell>
-            <TableCell align='right'>Original Amount&nbsp;(Rs.) </TableCell>
-            <TableCell align='right'>Investment Amount&nbsp;(Rs.)</TableCell>
-            <TableCell align='right'>Expected Amount&nbsp;(Rs.)</TableCell>
-            <TableCell align='right'>Status&nbsp;</TableCell>
+            <TableCell >Client Id&nbsp;</TableCell>
+            <TableCell >Original Amount&nbsp;(Rs.) </TableCell>
+            <TableCell >Investment Amount&nbsp;(Rs.)</TableCell>
+            <TableCell >Expected Amount&nbsp;(Rs.)</TableCell>
+            <TableCell >Status&nbsp;</TableCell>
           
           </TableRow>
         </TableHead>
@@ -468,11 +467,11 @@ const handleModalSubmit=(event)=>{
         </TableCell>
        
           <TableCell>{row.investmentName}</TableCell>
-          <TableCell align="right">{row.clientId} </TableCell>
-          <TableCell align="right">{row.amount} </TableCell>
-          <TableCell align="right">{row.investmentAmount}</TableCell>
-          <TableCell align="right">{row.expectedAmount}</TableCell>
-          <TableCell align="right">{row.status}</TableCell>
+          <TableCell >{row.clientId} </TableCell>
+          <TableCell >{row.amount} </TableCell>
+          <TableCell >{row.investmentAmount}</TableCell>
+          <TableCell >{row.expectedAmount}</TableCell>
+          <TableCell >{row.status}</TableCell>
         </TableRow>
             <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -482,7 +481,7 @@ const handleModalSubmit=(event)=>{
       xAxis={[
         {
           id: 'barCategories',
-          data: ['6m', '1 yr', '3yr','5yr'],
+          data: ['6 Month', '1 Year', '3 Year','5 Year'],
           scaleType: 'band',
           label:'Time'
         },
@@ -491,11 +490,11 @@ const handleModalSubmit=(event)=>{
       series={[
         {
           color:'#b7d9ff',
-          data: data,
+          data: [row.returnPercentageAfter6months,row.returnPercentageAfter1year,row.returnPercentageAfter3year,row.returnPercentageAfter5year],
           label:'Percentage Returns'
         },
       ]}
-      width={500}
+      width={800}
       height={300}
     />
             </Box>
