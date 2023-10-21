@@ -486,7 +486,11 @@ const handleModalSubmit=(event)=>{
           label:'Time'
         },
       ]}
-      
+      yAxis={[
+        {
+          label:'% Returns'
+        }
+      ]}
       series={[
         {
           color:'#b7d9ff',

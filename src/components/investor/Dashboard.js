@@ -342,7 +342,7 @@ const handleModalSubmit=()=>{
       console.log(response.data)
       if(response.data.message==="Investment Successfully Generated"){
         setAdvisorId(response.data.investment.advisorId)
-        setMessage("Advisor Assigned.Click Recommendations to see the strategies")
+        setMessage("Investment Request Created.Soon Advisor Will Create Strategy For You.")
       }
       setInvestmentAmount("")
       setInvestmentType("")
@@ -478,7 +478,7 @@ const handleModalSubmit=()=>{
   
 </div>
 <div class="button-container">
-  <button class="my-button" onClick={handleOpen}>Request For Recommendations</button>
+  <button class="my-button" onClick={handleOpen}>Investment Requests</button>
   <Modal
         open={open}
         onClose={handleClose}
@@ -543,7 +543,7 @@ const handleModalSubmit=()=>{
           <MenuItem value={'Low Risk'}>Low Risk(Gold,Fixed Income assets,Bonds etc)</MenuItem>
           <MenuItem value={'High Risk'}>High Risk(Equity,Future,Options etc)</MenuItem>
           <MenuItem value={'Medium Risk'}>Medium Risk(Mixed of Low and High Risk)</MenuItem>
-          <MenuItem >All of the Above</MenuItem>
+          <MenuItem value={'Need Consultation'}>Need Consultation</MenuItem>
         </Select>
       </FormControl>
       </Grid>
@@ -565,7 +565,7 @@ const handleModalSubmit=()=>{
                 autoFocus
               />} */}
       </Modal>
-  <button class="my-button" onClick={handleRecommendations} >Recommendations</button>
+  <button class="my-button" onClick={handleRecommendations} >Strategies</button>
   <Modal
         open={recommendationsOpen}
         onClose={handleRecommendationsClose}
