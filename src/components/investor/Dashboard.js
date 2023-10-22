@@ -385,7 +385,8 @@ const handleModalSubmit=()=>{
       }).then((response)=>{
         console.log(response)
         handleChildClose()
-      },(error)=>{
+        handleRecommendationsClose()
+              },(error)=>{
         console.log(error)
       }
       
@@ -395,7 +396,7 @@ const handleModalSubmit=()=>{
     }
 
     return(<>
-      <Button onClick={handleApprove}>Approve</Button>
+      <Button onClick={handleApprove}>Approve/Reject</Button>
       <Modal
         open={childOpen}
         onClose={handleChildClose}
