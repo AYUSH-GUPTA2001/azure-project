@@ -261,7 +261,8 @@ export default function Login(){
       }
   const investorData={
         email:loginEmail,
-        password:loginPassword
+        password:loginPassword,
+        firstName:"string"
   }
      
       axios({
