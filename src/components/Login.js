@@ -208,14 +208,16 @@ export default function Login(){
        
         if(response.data.message==="Login successful!"){
           // const advisor=response.data.advisor
-        
+          
           const advisorId= response.data.advisorId
           // const firstName= response.data.advisor.firstName
           navigate(`/advisor/dashboard/${advisorId}`)
         }
        
      } , function(error){
+      setMessage(error.response.data.message)
              console.log(error)
+             handleOpen()
     })
     }
   return (
@@ -471,6 +473,16 @@ export default function Login(){
               >
                Sign In
               </Button>
+              <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      ><Box sx={style} >
+        <CloseIcon color="primary" onClick={handleClose} style={{ position: "absolute", top: "10px", right: "10px" }} />
+      <Typography id="modal-modal-title" variant="h6" component="h2">
+        {message}
+      </Typography></Box></Modal>
 
 {/*               
               {
