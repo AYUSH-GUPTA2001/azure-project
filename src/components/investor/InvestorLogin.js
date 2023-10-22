@@ -26,7 +26,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateField } from '@mui/x-date-pickers/DateField';
 import { useNavigate } from 'react-router-dom';
 // import { PhoneInput } from 'react-international-phone';
-
+import CryptoJS from 'crypto-js';
 
 
 
@@ -71,6 +71,13 @@ export default function Login(){
     const [panNumberError,setPanNumberError]=useState(false)
     const [ifscCodeError,setIfscCodeError]=useState(false)
     const [riskCapacityError,setRiskCapacityError]=useState(false)
+
+
+
+    const encryptData = (data, secretKey) => {
+      const ciphertext = CryptoJS.AES.encrypt(data, secretKey).toString();
+      return ciphertext;
+    };
 
      //handle modal
      const style = {
@@ -275,7 +282,10 @@ export default function Login(){
           if(response.data.message==="Login successful!" || response.data.message==="Profile is not complete. Please provide the missing information."){
             const clientId=response.data.client.clientId
             const firstName=response.data.client.firstName
-            navigate(`/investor/dashboard/${clientId}/${firstName}`)
+            const secretKey='12ThreeFour'
+            const encryptedClientId = encryptData(clientId, secretKey);
+            const encryptedFirstName = encryptData(firstName,secretKey);
+            navigate(`/investor/dashboard/${encryptedClientId}/${encryptedFirstName}`)
           }
         
        

@@ -32,14 +32,20 @@ import axios from "axios";
 import * as React from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import { Margin } from "@mui/icons-material";
-
+import CryptoJS from 'crypto-js';
 function Dashboard(){
 
-    const {clientId,firstName}=useParams()
+    const {encryptedClientId,encryptedFirstName}=useParams()
     const navigate=useNavigate()    
     
-    
-   
+    const decryptData = (encryptedData, secretKey) => {
+      const bytes = CryptoJS.AES.decrypt(encryptedData, secretKey);
+      const data = bytes.toString(CryptoJS.enc.Utf8);
+      return data;
+    };
+   const secretKey='12ThreeFour'
+    const clientId=decryptData(encryptedClientId,secretKey)
+    const firstName=decryptData(encryptedFirstName,secretKey)
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
