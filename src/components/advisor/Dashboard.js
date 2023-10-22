@@ -93,9 +93,8 @@ function InvestmentStrategies( {advisorId} ) {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
-    borderRadius: '20px',
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
+    bgcolor: '#e4f1ff',
+    borderRadius:'20px',
     boxShadow: 24,
     p: 4,
   };   
@@ -348,7 +347,7 @@ const handleModalSubmit=(event)=>{
               <FormControl required fullWidth>
         <InputLabel id="demo-simple-select-label">Status</InputLabel>
         <Select
-          margin='normal'
+          margin='dense'
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           label="Status"
@@ -442,12 +441,12 @@ const handleModalSubmit=(event)=>{
         <TableRow >
             <TableCell />
             
-            <TableCell>Investment Name</TableCell>
-            <TableCell >Client Id&nbsp;</TableCell>
-            <TableCell >Original Amount&nbsp;(Rs.) </TableCell>
-            <TableCell >Investment Amount&nbsp;(Rs.)</TableCell>
-            <TableCell >Expected Amount&nbsp;(Rs.)</TableCell>
-            <TableCell >Status&nbsp;</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Investment Name</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }} >Client Id&nbsp;</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Original Amount&nbsp;(Rs.) </TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Investment Amount&nbsp;(Rs.)</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Expected Amount&nbsp;(Rs.)</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Status&nbsp;</TableCell>
           
           </TableRow>
         </TableHead>
@@ -466,7 +465,7 @@ const handleModalSubmit=(event)=>{
           </IconButton>
         </TableCell>
        
-          <TableCell>{row.investmentName}</TableCell>
+          <TableCell >{row.investmentName}</TableCell>
           <TableCell >{row.clientId} </TableCell>
           <TableCell >{row.amount} </TableCell>
           <TableCell >{row.investmentAmount}</TableCell>
@@ -596,8 +595,8 @@ function ClientList({advisorId}) {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
+    bgcolor: '#e4f1ff',
+    borderRadius:'20px',
     boxShadow: 24,
     p: 4,
   };   
@@ -640,8 +639,8 @@ const requestsStyle = {
   
   transform: 'translate(-50%, -50%)',
   width: 800,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
+  bgcolor: '#e4f1ff',
+    borderRadius:'20px',
   boxShadow: 24,
   p: 4,
 };   
@@ -692,9 +691,9 @@ const requestsStyle = {
       <Table   aria-label="simple table">
         <TableHead>
         <TableRow >
-           <TableCell>Investment Amount</TableCell>
-            <TableCell>Time Period</TableCell>
-            <TableCell >Investment Type</TableCell>
+           <TableCell sx={{ fontWeight: 'bold' }}>Investment Amount</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Time Period</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Investment Type</TableCell>
          
           </TableRow>
         </TableHead>
@@ -726,10 +725,10 @@ const requestsStyle = {
       <Table   aria-label="simple table">
         <TableHead>
         <TableRow >
-        <TableCell >Client Id</TableCell>
-            <TableCell>Client Name</TableCell>
-            <TableCell >Email Address</TableCell>
-            <TableCell >Mobile Number</TableCell>
+        <TableCell sx={{ fontWeight: 'bold' }}>Client Id</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Client Name</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Email Address</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Mobile Number</TableCell>
            
           </TableRow>
         </TableHead>
@@ -780,10 +779,10 @@ function ReportsContent({advisorId}) {
       <Table   aria-label="simple table">
         <TableHead>
         <TableRow >
-          <TableCell>Client Id</TableCell>
-           <TableCell>Investment Amount</TableCell>
-            <TableCell>Time Period</TableCell>
-            <TableCell >Investment Type</TableCell>
+          <TableCell sx={{ fontWeight: 'bold' }}>Client Id</TableCell>
+           <TableCell sx={{ fontWeight: 'bold' }}>Investment Amount</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Time Period</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Investment Type</TableCell>
          
           </TableRow>
         </TableHead>

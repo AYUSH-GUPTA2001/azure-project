@@ -148,11 +148,11 @@ const valueFormatter = (value) => `Rs.${value}`;
         <TableHead>
         <TableRow >
         <TableCell />
-            <TableCell>Investment Name</TableCell>
-            <TableCell >Original Amount(Rs.)</TableCell>
-            <TableCell >Investment Amount(Rs.)</TableCell>
-            <TableCell >Expected Amount(Rs.)</TableCell>
-            <TableCell >Status</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Investment Name</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Original Amount(Rs.)</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Investment Amount(Rs.)</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Expected Amount(Rs.)</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Status</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -257,8 +257,8 @@ function InvestmentContent({clientId}) {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
+    bgcolor: '#e4f1ff',
+    borderRadius:'20px',
     boxShadow: 24,
     p: 4,
   }; 
@@ -268,8 +268,8 @@ function InvestmentContent({clientId}) {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 800,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
+    bgcolor: '#e4f1ff',
+    borderRadius:'20px',
     boxShadow: 24,
     p: 4,
   };   
@@ -578,12 +578,12 @@ const handleModalSubmit=()=>{
       <Table   aria-label="simple table">
         <TableHead>
         <TableRow >
-           <TableCell>Investment Id</TableCell>
-            <TableCell>Investment Name</TableCell>
-            <TableCell >Original Amount(Rs.)</TableCell>
-            <TableCell >Investment Amount(Rs.)</TableCell>
-            <TableCell >Expected Amount(Rs.)</TableCell>
-            <TableCell >Status</TableCell>
+           <TableCell sx={{ fontWeight: 'bold' }}>Investment Id</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Investment Name</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Original Amount(Rs.)</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Investment Amount(Rs.)</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Expected Amount(Rs.)</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Status</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
