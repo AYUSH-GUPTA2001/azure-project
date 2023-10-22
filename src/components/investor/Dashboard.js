@@ -119,12 +119,6 @@ function PortfolioContent({clientId}) {
     }).then(function(response){
     const list=response.data.strategies
     
-     list.map((e)=>{
-      // const object1={amount:e.investmentAmount,
-      //                 graphHeadings:"Investment Amount"}
-      // const object2={amount:e.expectedAmount,
-      // graphHeadings:"Expected Amount"}
-      setData([e.investmentAmount,e.expectedAmount])})
      setListOfStrategies(list)
       console.log(list)
     
@@ -203,12 +197,12 @@ const valueFormatter = (value) => `Rs.${value}`;
       series={[
         {
           color:'#b7d9ff',
-          data: data,
+          data: [row.investmentAmount,row.expectedAmount],
           label:'Amount',
           valueFormatter
         },
       ]}
-      width={400}
+      width={700}
       height={300}
     />
             </Box>
