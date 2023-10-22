@@ -274,7 +274,8 @@ export default function Login(){
           console.log(response) 
           if(response.data.message==="Login successful!" || response.data.message==="Profile is not complete. Please provide the missing information."){
             const clientId=response.data.client.clientId
-            navigate(`/investor/dashboard/${clientId}`)
+            const firstName=response.data.client.firstName
+            navigate(`/investor/dashboard/${clientId}/${firstName}`)
           }
         
        

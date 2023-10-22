@@ -27,14 +27,14 @@ import Row from "./Row";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { styled } from '@mui/material/styles';
 function Dashboard(){
     
-    const { advisorId } = useParams()
+    const { advisorId ,firstName} = useParams()
     console.log(advisorId)
-    
+    const navigate = useNavigate()
 
 
   const handleOptionClick = (option) => {
@@ -49,17 +49,20 @@ function Dashboard(){
   };
 
   const [selectedOption, setSelectedOption] = useState('ClientList');
+  const handleLogout=()=>{
+    navigate('/advisor')
+  }
   return (
     <div className="investorDashboard">
        <div className="top-right">
         <div className="user-info" onClick={toggleDropdown}>
           <i className="material-icons">person</i>
-          <span>Your Profile</span>
+          <span>Hi {firstName}</span>
         </div>
         {isDropdownOpen && (
           <div className="dropdown">
             <ul>
-              <li>Logout</li>
+              <li onClick={handleLogout}>Logout</li>
               {/* Add other options as needed */}
             </ul>
           </div>

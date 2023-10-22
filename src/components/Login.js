@@ -210,9 +210,9 @@ export default function Login(){
         if(response.data.message==="Login successful!"){
           // const advisor=response.data.advisor
           
-          const advisorId= response.data.advisorId
-          // const firstName= response.data.advisor.firstName
-          navigate(`/advisor/dashboard/${advisorId}`)
+          const advisorId= response.data.advisor.advisorId
+          const firstName= response.data.advisor.firstName
+          navigate(`/advisor/dashboard/${advisorId}/${firstName}`)
         }
        
      } , function(error){

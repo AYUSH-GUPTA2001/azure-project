@@ -30,13 +30,13 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import axios from "axios";
 import * as React from 'react'
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Margin } from "@mui/icons-material";
 
 function Dashboard(){
 
-    const {clientId}=useParams()
-    
+    const {clientId,firstName}=useParams()
+    const navigate=useNavigate()    
     
     
    
@@ -52,17 +52,20 @@ function Dashboard(){
     setIsDropdownOpen(!isDropdownOpen);
   };
  const [selectedOption, setSelectedOption] = useState('Portfolio');
+ const handleLogout=()=>{
+  navigate('/investor')
+ }
   return (
     <div className="investorDashboard">
        <div className="top-right">
         <div className="user-info" onClick={toggleDropdown}>
           <i className="material-icons">person</i>
-          <span>Your Profile</span>
+          <span>Hi {firstName}</span>
         </div>
         {isDropdownOpen && (
           <div className="dropdown">
             <ul>
-              <li>Logout</li>
+              <li onClick={handleLogout}>Logout</li>
               {/* Add other options as needed */}
             </ul>
           </div>

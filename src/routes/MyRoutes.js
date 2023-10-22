@@ -17,9 +17,9 @@ function MyRouter(){
               
               <Route element={<Advisor/>} path="/advisor"/>
               <Route element={<Investor/>} path="/investor"/>
-              <Route element={<DashboardAdvisor/>} path="advisor/dashboard/:advisorId"/>
+              <Route element={<DashboardAdvisor/>} path="advisor/dashboard/:advisorId/:firstName"/>
               
-              <Route element={<DashboardClient/>} path="/investor/dashboard/:clientId"/>
+              <Route element={<DashboardClient/>} path="/investor/dashboard/:clientId/:firstName"/>
               
               
            </Routes>
