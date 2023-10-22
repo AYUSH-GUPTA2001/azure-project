@@ -6,8 +6,8 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import image2 from '../../assets/animation_lo1795sv_small.gif'
-import image3 from '../../assets/second.gif'
+import image2 from '../../assets/animation.gif'
+import image3 from '../../assets/seconds.gif'
 
 import CustomizedTables from "./Table";
 import Modal from '@mui/material/Modal';
