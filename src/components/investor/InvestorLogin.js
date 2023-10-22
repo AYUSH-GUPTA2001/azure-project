@@ -280,7 +280,8 @@ export default function Login(){
          
           console.log(response) 
           if(response.data.message==="Login successful!" || response.data.message==="Profile is not complete. Please provide the missing information."){
-            const clientId=response.data.client.clientId
+            const clientid=response.data.client.clientId
+            const clientId=clientid.toString()
             const firstName=response.data.client.firstName
             const secretKey='eyJhbGci0iJIUZI1NiIsInR5cCI6IkpXVCJ9'
             const encryptedClientId = encryptData(clientId, secretKey);
