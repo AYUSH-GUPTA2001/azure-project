@@ -470,7 +470,7 @@ const handleModalSubmit=(event)=>{
           <TableCell >{row.amount} </TableCell>
           <TableCell >{row.investmentAmount}</TableCell>
           <TableCell >{row.expectedAmount}</TableCell>
-          <TableCell ><Button sx={{width:'100px',borderRadius:'20px'}} variant="contained" color={row.status === 'Pending' ? 'error' : 'primary'}>{row.status}</Button></TableCell>
+          <TableCell ><Button sx={{width:'100px',borderRadius:'20px'}} variant="contained" color={row.status === 'Pending' ? 'primary' : (row.status==='Rejected'?'error':'success')}>{row.status}</Button></TableCell>
         </TableRow>
             <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
