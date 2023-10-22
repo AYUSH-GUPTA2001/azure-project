@@ -35,7 +35,7 @@ import { Margin } from "@mui/icons-material";
 import CryptoJS from 'crypto-js';
 function Dashboard(){
 
-    const {encryptedClientId,encryptedFirstName}=useParams()
+    const {clientId,encryptedFirstName}=useParams()
     const navigate=useNavigate()    
     
     const decryptData = (encryptedData, secretKey) => {
@@ -44,9 +44,9 @@ function Dashboard(){
       return data;
     };
    const secretKey='1One234'
-    const clientId=parseInt(decryptData(encryptedClientId,secretKey))
+    
     const firstName=decryptData(encryptedFirstName,secretKey)
-    console.log(clientId)
+    
     console.log(firstName)
   const handleOptionClick = (option) => {
     setSelectedOption(option);
