@@ -43,7 +43,7 @@ function Dashboard(){
       const data = bytes.toString(CryptoJS.enc.Utf8);
       return data;
     };
-   const secretKey='12ThreeFour'
+   const secretKey='eyJhbGci0iJIUZI1NiIsInR5cCI6IkpXVCJ9'
     const clientId=decryptData(encryptedClientId,secretKey)
     const firstName=decryptData(encryptedFirstName,secretKey)
 

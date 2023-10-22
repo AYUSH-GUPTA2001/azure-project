@@ -282,7 +282,7 @@ export default function Login(){
           if(response.data.message==="Login successful!" || response.data.message==="Profile is not complete. Please provide the missing information."){
             const clientId=response.data.client.clientId
             const firstName=response.data.client.firstName
-            const secretKey='12ThreeFour'
+            const secretKey='eyJhbGci0iJIUZI1NiIsInR5cCI6IkpXVCJ9'
             const encryptedClientId = encryptData(clientId, secretKey);
             const encryptedFirstName = encryptData(firstName,secretKey);
             navigate(`/investor/dashboard/${encryptedClientId}/${encryptedFirstName}`)
