@@ -46,7 +46,8 @@ function Dashboard(){
    const secretKey='1One234'
     const clientId=parseInt(decryptData(encryptedClientId,secretKey))
     const firstName=decryptData(encryptedFirstName,secretKey)
-
+    console.log(clientId)
+    console.log(firstName)
   const handleOptionClick = (option) => {
     setSelectedOption(option);
   };
