@@ -197,7 +197,8 @@ export default function Login(){
       }
   const advisorData={
         email:loginEmail,
-        password:loginPassword
+        password:loginPassword,
+        firstName:"string"
   }
       axios({
         method:"post",
