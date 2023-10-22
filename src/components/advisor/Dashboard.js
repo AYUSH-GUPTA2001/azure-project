@@ -441,12 +441,12 @@ const handleModalSubmit=(event)=>{
         <TableRow >
             <TableCell />
             
-            <TableCell sx={{ fontWeight: 'bold' }}>Investment Name</TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }} >Client Id&nbsp;</TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }}>Original Amount&nbsp;(Rs.) </TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }}>Investment Amount&nbsp;(Rs.)</TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }}>Expected Amount&nbsp;(Rs.)</TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }}>Status&nbsp;</TableCell>
+            <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Investment Name</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' , fontSize: '16px' }} >Client Id&nbsp;</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' , fontSize: '16px' }}>Original Amount&nbsp;(Rs.) </TableCell>
+            <TableCell sx={{ fontWeight: 'bold' , fontSize: '16px'}}>Investment Amount&nbsp;(Rs.)</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' , fontSize: '16px' }}>Expected Amount&nbsp;(Rs.)</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' , fontSize: '16px' }}>Status&nbsp;</TableCell>
           
           </TableRow>
         </TableHead>
@@ -691,9 +691,9 @@ const requestsStyle = {
       <Table   aria-label="simple table">
         <TableHead>
         <TableRow >
-           <TableCell sx={{ fontWeight: 'bold' }}>Investment Amount</TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }}>Time Period</TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }}>Investment Type</TableCell>
+           <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Investment Amount</TableCell>
+            <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Time Period</TableCell>
+            <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Investment Type</TableCell>
          
           </TableRow>
         </TableHead>
@@ -725,10 +725,10 @@ const requestsStyle = {
       <Table   aria-label="simple table">
         <TableHead>
         <TableRow >
-        <TableCell sx={{ fontWeight: 'bold' }}>Client Id</TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }}>Client Name</TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }}>Email Address</TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }}>Mobile Number</TableCell>
+        <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Client Id</TableCell>
+            <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Client Name</TableCell>
+            <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Email Address</TableCell>
+            <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Mobile Number</TableCell>
            
           </TableRow>
         </TableHead>
@@ -779,10 +779,10 @@ function ReportsContent({advisorId}) {
       <Table   aria-label="simple table">
         <TableHead>
         <TableRow >
-          <TableCell sx={{ fontWeight: 'bold' }}>Client Id</TableCell>
-           <TableCell sx={{ fontWeight: 'bold' }}>Investment Amount</TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }}>Time Period</TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }}>Investment Type</TableCell>
+          <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Client Id</TableCell>
+           <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Investment Amount</TableCell>
+            <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Time Period</TableCell>
+            <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Investment Type</TableCell>
          
           </TableRow>
         </TableHead>
