@@ -283,7 +283,7 @@ export default function Login(){
             const clientid=response.data.client.clientId
             const clientId=clientid.toString()
             const firstName=response.data.client.firstName
-            const secretKey='eyJhbGci0iJIUZI1NiIsInR5cCI6IkpXVCJ9'
+            const secretKey='1One234'
             const encryptedClientId = encryptData(clientId, secretKey);
             const encryptedFirstName = encryptData(firstName,secretKey);
             navigate(`/investor/dashboard/${encryptedClientId}/${encryptedFirstName}`)

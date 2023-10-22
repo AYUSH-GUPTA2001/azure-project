@@ -43,8 +43,8 @@ function Dashboard(){
       const data = bytes.toString(CryptoJS.enc.Utf8);
       return data;
     };
-   const secretKey='eyJhbGci0iJIUZI1NiIsInR5cCI6IkpXVCJ9'
-    const clientId=decryptData(encryptedClientId,secretKey)
+   const secretKey='1One234'
+    const clientId=parseInt(decryptData(encryptedClientId,secretKey))
     const firstName=decryptData(encryptedFirstName,secretKey)
 
   const handleOptionClick = (option) => {
