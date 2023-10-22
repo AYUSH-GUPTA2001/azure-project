@@ -174,7 +174,7 @@ const valueFormatter = (value) => `Rs.${value}`;
           <TableCell>{row.amount}</TableCell>
           <TableCell>{row.investmentAmount}</TableCell>
           <TableCell>{row.expectedAmount}</TableCell>
-          <TableCell>{row.status}</TableCell>
+          <TableCell><Button color={row.status === 'Pending' ? 'error' : 'primary'}>{row.status}</Button></TableCell>
         </TableRow>
         <TableRow>
         <TableCell style={{ paddingRight:10,paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -597,7 +597,7 @@ const handleModalSubmit=()=>{
           <TableCell>{row.amount}</TableCell>
           <TableCell>{row.investmentAmount}</TableCell>
           <TableCell>{row.expectedAmount}</TableCell>
-          <TableCell>{row.status}</TableCell>
+          <TableCell><Button color={row.status === 'Pending' ? 'error' : 'primary'}>{row.status}</Button></TableCell>
         </TableRow>
       </React.Fragment>
     );

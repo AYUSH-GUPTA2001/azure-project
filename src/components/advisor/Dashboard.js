@@ -471,7 +471,7 @@ const handleModalSubmit=(event)=>{
           <TableCell >{row.amount} </TableCell>
           <TableCell >{row.investmentAmount}</TableCell>
           <TableCell >{row.expectedAmount}</TableCell>
-          <TableCell >{row.status}</TableCell>
+          <TableCell ><Button color={row.status === 'Pending' ? 'error' : 'primary'}>{row.status}</Button></TableCell>
         </TableRow>
             <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -705,7 +705,7 @@ const requestsStyle = {
         <TableRow>
           <TableCell>{e.investmentAmount}</TableCell>
           <TableCell>{e.timePeriod}</TableCell>
-          <TableCell>{e.investmentType}</TableCell>
+          <TableCell><Button color={e.investmentType === 'High Risk' ? 'error' : (e.investmentType === 'Low Risk' ? 'primary' : 'success')}>{e.investmentType}</Button></TableCell>
           
         </TableRow>
       </React.Fragment>
@@ -795,7 +795,7 @@ function ReportsContent({advisorId}) {
           <TableCell>{row.clientId}</TableCell>
           <TableCell>{row.investmentAmount}</TableCell>
           <TableCell>{row.timePeriod}</TableCell>
-          <TableCell>{row.investmentType}</TableCell>
+          <TableCell><Button color={row.investmentType === 'High Risk' ? 'error' : (row.investmentType === 'Low Risk' ? 'primary' : 'success')}>{row.investmentType}</Button></TableCell>
           
         </TableRow>
       </React.Fragment>
