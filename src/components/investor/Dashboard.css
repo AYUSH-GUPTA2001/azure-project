@@ -195,33 +195,23 @@ height: 20px; /* Height of the border (adjust as needed) */
 background-color: rgb(76, 3, 90); /* Border color */
 margin: 0 5px; /* Margin to space out the borders */
 }
+
 .Investmentcontainer {
-text-align: center; /* Center the images horizontally */
-display: flex;
-flex-direction: row; /* Center the images vertically */
-justify-content: center;
-align-items: center;
+  text-align: center; /* Center the images horizontally */
+  display: flex;
+  flex-direction: row; /* Center the images vertically */
+  justify-content: center;
+  align-items: center;
 }
 .investmentbox {
-/* width: 100px; /* Set a width for the divs if needed */
-/* height: 100px; Set a height for the divs if needed */
-/* background-color: #e4f1ff; */
-/* border-radius: 25px; */
-/* box-shadow: 0px -5px 10px #0000001a;  */ 
-/* Add background color for visibility */
-/* padding: 60px;
-margin-right: 0px;
-margin-top: 100px;
-margin-left: 20px;
-margin-bottom: 10px;  */
-/* Add margin to space out the divs */
-max-width: 100%; /* Ensure the images don't exceed the container's width */
-height: auto; /* Maintain the aspect ratio of the images */
-/* You can add additional styling or margin as needed */
-margin-left: 40px;
-  border-radius: 30px;
-  margin-right: 42px;
+ 
+
+display: flex;
+align-items:center ;
+justify-content: center;
+width: 330px;
 }
+
 .rectangle-div-investment {
 margin-top: 60px;
   width: 900px;
@@ -241,21 +231,23 @@ display: flex;
 justify-content: center;
 align-items: center;
 }
+
 .button-container {
-display: flex; /* Use flexbox to create a row */
-justify-content: space-between; /* Space evenly between buttons */
-width: inherit; /* Set a fixed width for the container or adjust as needed */
-margin: 0 auto; /* Center the container horizontally */
+  display: flex; /* Use flexbox to create a row */
+  justify-content: center;
+  align-items: center; /* Space evenly between buttons */
+  width: inherit; /* Set a fixed width for the container or adjust as needed */
+  margin: 0 auto; /* Center the container horizontally */
 }
 
 .my-button {
-width: 250px;
-padding: 10px 20px; /* Add padding to the buttons */
-background-color: #0074d9; /* Button background color */
-color: #fff; /* Button text color */
-border: none; /* Remove button border */
-cursor: pointer; /* Add pointer cursor on hover */
-margin-left: 40px;
-border-radius: 30px;
-margin-right: 70px;
+  width: 250px;
+  padding: 10px 20px; /* Add padding to the buttons */
+  background-color: #0074d9; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none; /* Remove button border */
+  cursor: pointer; /* Add pointer cursor on hover */
+  margin-left: 42px;
+  border-radius: 30px;
+  margin-right: 68px;
 }

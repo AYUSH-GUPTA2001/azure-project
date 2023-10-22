@@ -6,9 +6,9 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import image2 from '../../assets/women.png'
-import image3 from '../../assets/tele.png'
-import image4 from '../../assets/search.png'
+import image2 from '../../assets/animation_lo1795sv_small.gif'
+import image3 from '../../assets/second.gif'
+
 import CustomizedTables from "./Table";
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
@@ -174,7 +174,7 @@ const valueFormatter = (value) => `Rs.${value}`;
           <TableCell>{row.amount}</TableCell>
           <TableCell>{row.investmentAmount}</TableCell>
           <TableCell>{row.expectedAmount}</TableCell>
-          <TableCell><Button sx={{borderRadius:'20px'}} variant="contained" color={row.status === 'Pending' ? 'error' : 'primary'}>{row.status}</Button></TableCell>
+          <TableCell><Button sx={{width:'100px',borderRadius:'20px'}} variant="contained" color={row.status === 'Pending' ? 'error' : 'primary'}>{row.status}</Button></TableCell>
         </TableRow>
         <TableRow>
         <TableCell style={{ paddingRight:10,paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -597,7 +597,7 @@ const handleModalSubmit=()=>{
           <TableCell>{row.amount}</TableCell>
           <TableCell>{row.investmentAmount}</TableCell>
           <TableCell>{row.expectedAmount}</TableCell>
-          <TableCell><Button sx={{borderRadius:'20px'}} variant="contained" color={row.status === 'Pending' ? 'error' : 'primary'}>{row.status}</Button></TableCell>
+          <TableCell><Button sx={{width:'100px',borderRadius:'20px'}} variant="contained" color={row.status === 'Pending' ? 'error' : 'primary'}>{row.status}</Button></TableCell>
         </TableRow>
       </React.Fragment>
     );
