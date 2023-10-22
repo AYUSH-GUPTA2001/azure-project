@@ -435,7 +435,8 @@ const handleModalSubmit=()=>{
           error={statusError}
           onChange={(e)=>setStatus(e.target.value) }
         >
-          <MenuItem value={'Approved'}>Approved</MenuItem>
+          <MenuItem value={'Approved'}>Approve</MenuItem>
+          <MenuItem value={'Rejected'}>Reject</MenuItem>
          
         
         </Select>
