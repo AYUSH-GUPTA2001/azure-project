@@ -18,7 +18,7 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import { useNavigate } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
-
+import LoadingSpinner from './LoadingSpinner/LoadingSpinner';
 
 // import { PhoneInput } from 'react-international-phone';
 
@@ -31,7 +31,7 @@ export default function Login(){
     const [loginPassword, setLoginPassword] = useState("")
     const [loginEmailError, setLoginEmailError] = useState(false)
     const [loginPasswordError, setLoginPasswordError] = useState(false)
-
+    const [loading,setLoading]=useState(false)
     const [address,setAddress]=useState("")
     const [phone, setPhone] = useState('');
     const [firstName, setFirstName] = useState("")
@@ -151,12 +151,13 @@ export default function Login(){
     
     
     }
-    
+    setLoading(true)
     axios({
                 method:"post",
                 url:"https://investmentportal.azurewebsites.net/api/AdvisorSignUp/signup?api-version=1",
                 data:advisorData
             }).then(function(response){
+              setLoading(false)
                   setMessage(response.data.message)
                   handleOpen()
                 setFirstName('')
@@ -171,6 +172,7 @@ export default function Login(){
                 setAddress('')
                
              } , function(error){
+              setLoading(false)
               console.log(error)
                     if(error.response.data.message){
                       setMessage(error.response.data.message)
@@ -200,12 +202,13 @@ export default function Login(){
         password:loginPassword,
         firstName:"string"
   }
+  setLoading(true)
       axios({
         method:"post",
         url:"https://investmentportal.azurewebsites.net/api/AdvisorSignUp/login?api-version=1",
         data:advisorData
     }).then(function(response){
-        
+        setLoading(false)
        
         if(response.data.message==="Login successful!"){
           // const advisor=response.data.advisor
@@ -216,6 +219,7 @@ export default function Login(){
         }
        
      } , function(error){
+      setLoading(false)
       setMessage(error.response.data.message)
              console.log(error)
              handleOpen()
@@ -412,7 +416,7 @@ export default function Login(){
               />
              </Grid>
              </Grid>
-              <Button
+              {loading?<LoadingSpinner/>:<Button
                 type="submit"
 
                 fullWidth
@@ -420,7 +424,7 @@ export default function Login(){
                 sx={{ mt: 3, mb: 2 }}
               >
                 Sign In
-              </Button>
+              </Button>}
               <Modal
         open={open}
         onClose={handleClose}
@@ -466,14 +470,14 @@ export default function Login(){
                 autoComplete="current-password"
               />
            
-              <Button
+              {loading?<LoadingSpinner/>:<Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
                Sign In
-              </Button>
+              </Button>}
               <Modal
         open={open}
         onClose={handleClose}

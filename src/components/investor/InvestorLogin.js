@@ -209,12 +209,14 @@ export default function Login(){
         "isProfileComplete":true
       
       }
+      setLoading(true)
       axios({
         method:"post",
         url:"https://investmentportal.azurewebsites.net/api/ClientSignUp/signup?api-version=1",
         data:investorData
     }).then(function(response){
          if(response.data.message==="User registered successfully!"){
+          setLoading(false)
           setMessage(response.data.message)
               
               
@@ -239,6 +241,7 @@ export default function Login(){
         
        
      } , function(error){
+      setLoading(false)
              console.log(error)
              if(error.response.data.message){
               setMessage(error.response.data.message)
@@ -588,7 +591,7 @@ export default function Login(){
         </Select>
       </FormControl>
       </Grid>
-              <Button onClick={handleModalSubmit}>Create Account</Button></>}
+              {loading?<LoadingSpinner/>:<Button onClick={handleModalSubmit}>Create Account</Button>}</>}
         </Box>
       </Modal>
 
