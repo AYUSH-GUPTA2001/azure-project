@@ -26,7 +26,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateField } from '@mui/x-date-pickers/DateField';
 import { useNavigate } from 'react-router-dom';
 // import { PhoneInput } from 'react-international-phone';
-
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 
 
@@ -54,6 +54,7 @@ export default function Login(){
     const [ifscCode,setIfscCode]= useState("")
     const [panNumber,setPanNumber]= useState("")
     const [riskCapacity,setRiskCapacity]=useState("")
+    const [loading,setLoading]=useState(false)
 
   
     const [addressError,setAddressError]= useState(false)
@@ -264,7 +265,7 @@ export default function Login(){
         password:loginPassword,
         firstName:"string"
   }
-     
+     setLoading(true)
       axios({
         method:"post",
         url:"https://investmentportal.azurewebsites.net/api/ClientSignUp/login?api-version=1",
@@ -273,6 +274,7 @@ export default function Login(){
          
           console.log(response) 
           if(response.data.message==="Login successful!" || response.data.message==="Profile is not complete. Please provide the missing information."){
+            setLoading(false)
             const clientId=response.data.client.clientId
             const firstName=response.data.client.firstName
             navigate(`/investor/dashboard/${clientId}`)
@@ -280,7 +282,9 @@ export default function Login(){
         
        
      } , function(error){
+      setLoading(false)
       setMessage(error.response.data.message)
+           
              console.log(error)
              handleOpen()
     })
@@ -623,15 +627,15 @@ export default function Login(){
                 autoComplete="current-password"
               />
            
-              <Button
+             
+{loading?<LoadingSpinner/>: <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
                Sign In
-              </Button>
-
+              </Button>}
 {/*               
               {
                 email&&password?
@@ -658,7 +662,7 @@ export default function Login(){
               <Grid container>
                 <Grid item xs>
                   <Link href="#"  variant="body2">
-                    Forgot password?
+                    {/* Forgot password? */}
                   </Link>
                 </Grid>
                 <Grid item>
