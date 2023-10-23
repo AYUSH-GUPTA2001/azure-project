@@ -19,7 +19,7 @@ function MyRouter(){
               <Route element={<Investor/>} path="/investor"/>
               <Route element={<DashboardAdvisor/>} path="advisor/dashboard/:advisorId/:firstName"/>
               
-              <Route element={<DashboardClient/>} path="/investor/dashboard/:clientId/:encryptedFirstName/:moreData"/>
+              <Route element={<DashboardClient/>} path="/investor/dashboard/:clientId/:firstName"/>
               
               
            </Routes>
