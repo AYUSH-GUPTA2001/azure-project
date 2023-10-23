@@ -32,7 +32,7 @@ import axios from "axios";
 import { styled } from '@mui/material/styles';
 function Dashboard(){
     
-    const { advisorId ,firstName} = useParams()
+    const { advisorId } = useParams()
     console.log(advisorId)
     const navigate = useNavigate()
 
@@ -57,7 +57,7 @@ function Dashboard(){
        <div className="top-right">
         <div className="user-info" onClick={toggleDropdown}>
           <i className="material-icons">person</i>
-          <span>Hi {firstName}</span>
+          <span>Your Profile</span>
         </div>
         {isDropdownOpen && (
           <div className="dropdown">
@@ -652,7 +652,7 @@ const requestsStyle = {
  const handleRequestsClose = () => setRequestsOpen(false);
   return (
     <div>
-      <Button onClick={handleOpen} variant='contained'>Investment Requests</Button>
+      {/* <Button onClick=handleOpen variant='contained'>Investment Requests</Button> */}
       <Modal
         open={modalOpen}
         onClose={handleClose}

@@ -212,7 +212,7 @@ export default function Login(){
           
           const advisorId= response.data.advisor.advisorId
           const firstName= response.data.advisor.firstName
-          navigate(`/advisor/dashboard/${advisorId}/${firstName}`)
+          navigate(`/advisor/dashboard/${advisorId}`)
         }
        
      } , function(error){

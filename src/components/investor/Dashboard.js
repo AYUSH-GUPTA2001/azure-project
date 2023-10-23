@@ -35,7 +35,7 @@ import { Margin } from "@mui/icons-material";
 
 function Dashboard(){
 
-    const {clientId,firstName}=useParams()
+    const {clientId}=useParams()
     const navigate=useNavigate()    
     
     
@@ -60,7 +60,7 @@ function Dashboard(){
        <div className="top-right">
         <div className="user-info" onClick={toggleDropdown}>
           <i className="material-icons">person</i>
-          <span>Hi {firstName}</span>
+          <span>Your Profile</span>
         </div>
         {isDropdownOpen && (
           <div className="dropdown">
