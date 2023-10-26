@@ -1,0 +1,440 @@
+body {
+    margin: 0;
+    padding: 0;
+
+  
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    z-index: 100;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fixed-header .logo h1 {
+    height: 50px; /* Adjust the height as needed */
+    margin-left: 30px; /* Adjust the margin as needed */
+}
+
+.fixed-header .logo a {
+    text-decoration: none;
+}
+
+.fixed-header .logo .logo-text {
+    color: black;
+}
+
+.fixed-header .logo .dot {
+    color: blue;
+}
+
+.fixed-header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.fixed-header nav li {
+    margin: 0 15px; /* Adjust the spacing as needed */
+}
+
+.fixed-header nav a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s, text-decoration 0.3s;
+    
+    padding: 5px 10px;
+}
+
+.fixed-header nav a:hover {
+    color: blue;
+    text-decoration: underline;
+}
+.fixed-header nav a:active {
+ /* Change the background color to blue when active */
+    color: blue; 
+    text-decoration: underline; /* Add underline when active */
+}
+/* ... existing styles ... */
+
+.fixed-header .dropdown {
+    position: relative;
+}
+
+.fixed-header .dropdown .nav-link {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.fixed-header .dropdown:hover .dropdown-content {
+    display: block;
+}
+.fixed-header .dropmenu:hover{
+   display: block;
+}
+.fixed-header .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 200px; /* Adjust the width as needed for laptop screens */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.fixed-header .dropdown .dropdown-content a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.fixed-header .dropdown .dropdown-content a:hover {
+    background-color: blue;
+    color: #fff;
+}
+
+#hero{
+    width: 100%;
+    height: 75vh;
+    background: url(./first.png) ;
+    background-size: cover;
+    position: relative;
+    margin-top: 70px;
+}
+section {
+    padding: 60px 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+#hero .container2 {
+    position: relative;
+}
+#hero h1 {
+    margin: 0;
+    margin-left: 25px;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    color: #222222;
+    font-family: "Poppins", sans-serif;
+}
+
+#hero h1 span {
+    color: #106eea;
+}
+#hero h2 {
+    color: #555555;
+    margin: 5px 0 30px 0;
+    font-size: 24px;
+    font-weight: 400;
+    margin-left: 25px;
+}
+
+.d-flex {
+    display: flex!important;
+}
+#hero .btn-get-started {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-left: 25px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: 0.5s;
+    color: #fff;
+    background: #106eea;
+}
+#hero .btn-watch-video {
+    font-size: 16px;
+    transition: 0.5s;
+    margin-left: 25px;
+    color: #222222;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.section-bg {
+    background-color: #f6f9fe;
+    display: flex;
+    flex-direction: column;
+}
+.section-title {
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+.section-title h2 {
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding: 8px 20px;
+    margin: 0;
+    background: #e7f1fd;
+    color: #106eea;
+    display: inline-block;
+    text-transform: uppercase;
+    border-radius: 50px;
+}
+.section-title h3 {
+    margin: 15px 0 0 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+.section-title h3 span {
+    color: #106eea;
+}
+.section-title p {
+    margin: 15px auto 0 auto;
+    font-weight: 600;
+}
+
+.container3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container4 {
+    display: flex; /* Use flexbox for horizontal alignment */
+}
+
+.box1 {
+    width: 600px; /* Set the width of each div as needed */
+    height: 350px; /* Set the height as needed */
+    margin: 10px; /* Add margin between the divs */
+    background: url(./stock-chart.png) top left;
+    background-size: cover;
+
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box2 {
+    width: 600px; /* Set the width of each div as needed */
+    height: 300px; /* Set the height as needed */
+    margin: 10px; /* Add margin between the divs */
+    
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.red {
+    background-color: red;
+    color: white;
+}
+
+.blue {
+    background-color: blue;
+    color: white;
+}
+.container4 .box2 h3 {
+    font-weight: 600;
+    font-size: 26px;
+}
+.container4 .box2 ul {
+    list-style: none;
+    padding: 0;
+}
+.container4 .box2 ul li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 35px;
+}
+.container4 .box2 ul li:first-child {
+    margin-top: 0px;
+}
+.container4 .box2 ul i {
+    background: #fff;
+    box-shadow: 0px 6px 15px rgba(16, 110, 234, 0.12);
+    font-size: 24px;
+    padding: 20px;
+    margin-right: 15px;
+    color: #106eea;
+    border-radius: 50px;
+}
+
+.container4 .box2 .bx {
+    font-family: boxicons!important;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+    display: inline-block;
+    text-transform: none;
+
+}
+.container4 .box2 ul h5 {
+    font-size: 18px;
+    color: #555555;
+}
+.container4 .box2 p:last-child {
+    margin-bottom: 0;
+}
+.container4 .box2 ul p {
+    font-size: 15px;
+}
+
+.team {
+    display: flex;
+    padding: 60px 0;
+}
+
+.container5{
+    width:100vh
+}
+.container6{
+    display:flex;
+    align-items: stretch;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+.row1{
+    display: flex;
+}
+
+.section-title {
+    text-align: center;
+    padding-bottom: 30px;
+}
+.section-title h2 {
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding: 8px 20px;
+    margin: 0;
+    background: #e7f1fd;
+    color: #106eea;
+    display: inline-block;
+    text-transform: uppercase;
+    border-radius: 50px;
+}
+.section-title h3 {
+    margin: 15px 0 0 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+.section-title h3 span {
+    color: #106eea;
+}
+.container6 .member {
+    margin-bottom: 20px;
+    overflow: hidden;
+    width: 250px;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0px 2px 15px rgba(16, 110, 234, 0.15);
+}
+.container6 .member .member-img1 {
+    position: static;
+    overflow: hidden;
+    height:250px;
+    background: url(./Priyanka\ Aggrawal.jpg) top left;
+    background-size: cover;
+}
+.container6 .member .member-img2 {
+    position: static;
+    overflow: hidden;
+    height:250px;
+    background: url(./Amandeep\ Kumar\ 1.jpg) top left;
+    background-size: cover;
+}.container6 .member .member-img3 {
+    position: static;
+    overflow: hidden;
+    height:250px;
+    background: url(./Tanmay\ Mahajan.png) top left;
+    background-size: cover;
+}.container6 .member .member-img4 {
+    position: static;
+    overflow: hidden;
+    height:250px;
+    background: url(./Ritika\ 1.jpg) top left;
+    background-size: cover;
+}.container6 .member .member-img5 {
+    position: static;
+    overflow: hidden;
+    height:250px;
+    background: url(./Ayush\ Gupta\ 1.JPG) top left;
+    background-size: cover;
+}.container6 .member .member-img6 {
+    position: static;
+    overflow: hidden;
+    height:250px;
+    background: url(./Sahil\ Malpotra.jpg) top left;
+    background-size: cover;
+}.container6 .member .member-img7 {
+    position: static;
+    overflow: hidden;
+    height:250px;
+    background: url(./Vikash\ Kumar.jpg) top left;
+    background-size: cover;
+}.container6 .member .member-img8 {
+    position: static;
+    overflow: hidden;
+    height:250px;
+    background: url(./Uttam\ Sharma.jpg) top left;
+    background-size: cover;
+}
+
+.container6 .member .social {
+    position: absolute;
+    left: 0;
+    bottom: 30px;
+    right: 0;
+    opacity: 0;
+    transition: ease-in-out 0.3s;
+    text-align: center;
+}
+
+
+
+.container6 .member .social a {
+    transition: color 0.3s;
+    color: #222222;
+    margin: 0 3px;
+    padding-top: 7px;
+    border-radius: 4px;
+    width: 36px;
+    height: 36px;
+    background: rgba(16, 110, 234, 0.8);
+    display: inline-block;
+    transition: ease-in-out 0.3s;
+    color: #fff;
+}
+.container6 .member .member-info {
+    padding: 25px 15px;
+}
+.container6 .member .member-info h4 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #222222;
+}
+
+.container6 .member .member-info span {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: #aaaaaa;
+}
