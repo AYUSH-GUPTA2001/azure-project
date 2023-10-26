@@ -279,7 +279,7 @@ export default function Login(){
           if(response.data.message==="Login successful!" || response.data.message==="Profile is not complete. Please provide the missing information."){
             setLoading(false)
             const clientId=response.data.client.clientId
-            const firstName=response.data.client.firstName
+           
             navigate(`/investor/dashboard/${clientId}`)
           }
         

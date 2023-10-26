@@ -90,44 +90,7 @@ function Dashboard(){
 function InvestmentStrategies( {advisorId} ) {
 
   //handle modal
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: '#e4f1ff',
-    borderRadius:'20px',
-    boxShadow: 24,
-    p: 4,
-  };   
-const [modalOpen, setModalOpen] = React.useState(false);
-const handleOpen = () => setModalOpen(true);
-const handleClose = () => setModalOpen(false);
-const [strategyName,setStrategyName]=useState('')
-const [clientId,setClientId]=useState('')
-const [amount,setAmount]=useState('')
-const [investmentAmount,setInvestmentAmount]=useState('')
-const [expectedAmount,setExpectedAmount]=useState('')
-const [Status,setStatus]=useState('')
-const [sixMonReturns,setSixMonReturns]=useState('')
-const [oneYrReturns,setOneYrReturns]=useState('')
-const [threeYrReturns,setThreeYrReturns]=useState('')
-const [fiveYrReturns,setFiveYrReturns]=useState('')
-
-
-
-const [strategyNameError,setStrategyNameError]=useState(false)
-const [clientIdError,setClientIdError]=useState(false)
-const [amountError,setAmountError]=useState(false)
-const [investmentAmountError,setInvestmentAmountError]=useState(false)
-const [expectedAmountError,setExpectedAmountError]=useState(false)
-const [statusError,setStatusError]=useState(false)
-const [sixMonReturnsError,setSixMonReturnsError]=useState(false)
-const [oneYrReturnsError,setOneYrReturnsError]=useState(false)
-const [threeYrReturnsError,setThreeYrReturnsError]=useState(false)
-const [fiveYrReturnsError,setFiveYrReturnsError]=useState(false)
-
+  
 
 
   const [open, setOpen] = useState(false);
@@ -150,100 +113,6 @@ const [fiveYrReturnsError,setFiveYrReturnsError]=useState(false)
     })
 },[listOfStratgies])
 
-const handleModalSubmit=(event)=>{
-
-  event.preventDefault();
-  setStrategyNameError(false)
-  setClientIdError(false)
-  setSixMonReturnsError(false)
-  setOneYrReturnsError(false)
-  setThreeYrReturnsError(false)
-  setFiveYrReturnsError(false)
-
-  if(strategyName===""){
-    setStrategyNameError(true)
-    
-  }
-  if(clientId===""){
-    setClientIdError(true)
-    
-  }
-  if(amount===""){
-    setAmountError(true)
-    
-  }
-  if(Status===''){
-    setStatusError(true)
-  
-  }
-  if(investmentAmount===""){
-    setInvestmentAmountError(true)
-    
-  }
-  if(expectedAmount===""){
-    setExpectedAmountError(true)
-    
-  }
-  if(sixMonReturns===""){
-    setSixMonReturnsError(true)
-    
-  }
-  if(oneYrReturns===""){
-    setOneYrReturnsError(true)
-    
-  }
-  if(threeYrReturns===""){
-    setThreeYrReturnsError(true)
-    
-  }
-  if(fiveYrReturns===""){
-    setFiveYrReturnsError(true)
-    return
-  }
-  const strategyData ={
-    "strategyId": 0,
-  "investmentId": 0,
-  "investmentName": strategyName,
-  "amount": amount,
-  "clientId": clientId,
-  "advisorId": advisorId,
-  "returnPercentage": sixMonReturns,
-  "investmentAmount": investmentAmount,
-  "expectedAmount": expectedAmount,
-  "returnPercentageAfter6months": sixMonReturns,
-  "returnPercentageAfter1year": oneYrReturns,
-  "returnPercentageAfter3year": threeYrReturns,
-  "returnPercentageAfter5year": fiveYrReturns,
-  "status": Status,
-  "timePeriod": "string",
-  "remarks": "string"
-  }
-  axios({
-    method:'post',
-    url:'https://investmentportal.azurewebsites.net/api/strategies/Add?api-version=1',
-    data: strategyData
-}).then((response)=>{
-   console.log(response)
-   if(response.data.message="Strategy added successfully."){
-    setStrategyName('')
-    setClientId('')
-    setSixMonReturns('')
-    setOneYrReturns('')
-    setThreeYrReturns('')
-    setFiveYrReturns('')
-    setAmount('')
-    setExpectedAmount('')
-    setInvestmentAmount('')
-    handleClose()
-   }
-},(error)=>{
-  console.log(error)
-  handleClose()
-})
- 
-
-
-}
 
 
 
@@ -251,191 +120,7 @@ const handleModalSubmit=(event)=>{
     <div className="portfolio">
     
       {/* Add your portfolio content here */}
-     <Button  onClick={handleOpen} variant='contained'>Add Strategy</Button>
-  <Modal
-        open={modalOpen}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style} >
-          <CloseIcon color="primary" onClick={handleClose} style={{ position: "absolute", top: "10px", right: "10px" }} />
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Create New Strategy For Client
-          </Typography>
-          <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                
-                  margin="dense"
-                  autoComplete="given-name"
-                  name="strategyName"
-                  required
-                  fullWidth
-                  value={strategyName}
-                  error={strategyNameError}
-                  onChange={e => setStrategyName(e.target.value)}
-                  id="strategyName"
-                  label="Strategy Name"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  
-                  margin="dense"
-                  required
-                  fullWidth
-                  id="clientId"
-                  label="Client ID"
-                  name="clientId"
-                  value={clientId}
-                  error={clientIdError}
-                  onChange={e => setClientId(e.target.value)}
-                  
-                />
-              </Grid>
-              
-              </Grid>
-              <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                
-                  margin="dense"
-                  autoComplete="given-name"
-                  name="strategyName"
-                  required
-                  fullWidth
-                  value={amount}
-                  error={amountError}
-                  onChange={e => setAmount(e.target.value)}
-                  id="strategyName"
-                  label="Original Amount"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  
-                  margin="dense"
-                  required
-                  fullWidth
-                  id="investmentAmount"
-                  label="Investment Amount"
-                  name="investmentAmount"
-                  value={investmentAmount}
-                  error={investmentAmountError}
-                  onChange={e => setInvestmentAmount(e.target.value)}
-                  
-                />
-              </Grid>
-              
-              </Grid>
-              
-                <TextField
-                
-                  margin="dense"
-                  autoComplete="given-name"
-                  name="strategyName"
-                  required
-                  fullWidth
-                  value={expectedAmount}
-                  error={expectedAmountError}
-                  onChange={e => setExpectedAmount(e.target.value)}
-                  id="strategyName"
-                  label="Expected Amount"
-                  autoFocus
-                />
-              
-              <FormControl required fullWidth>
-        <InputLabel id="demo-simple-select-label">Status</InputLabel>
-        <Select
-          margin='dense'
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          label="Status"
-          value={Status}
-          error={statusError}
-          onChange={(e)=>setStatus(e.target.value) }
-        >
-          <MenuItem value={'Pending'}>Pending</MenuItem>
-         
-        
-        </Select>
-      </FormControl>
-              
-              <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                
-                  margin="dense"
-                  autoComplete="given-name"
-                  name="6m Returns"
-                  required
-                  fullWidth
-                  value={sixMonReturns}
-                  error={sixMonReturnsError}
-                  onChange={e => setSixMonReturns(e.target.value)}
-                  id="6m Returns"
-                  label="6m Returns(%)"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  
-                  margin="dense"
-                  required
-                  fullWidth
-                  id="1yr"
-                  label="1yr Returns(%) "
-                  name="1yr"
-                  value={oneYrReturns}
-                  error={oneYrReturnsError}
-                  onChange={e => setOneYrReturns(e.target.value)}
-                  
-                />
-              </Grid>
-              
-              </Grid>
-              <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  
-                  margin="dense"
-                  autoComplete="given-name"
-                  name="3yr"
-                  required
-                  fullWidth
-                  value={threeYrReturns}
-                  error={threeYrReturnsError}
-                  onChange={e => setThreeYrReturns(e.target.value)}
-                  id="3yr"
-                  label="3yr Returns(%)"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-              
-                  margin="dense"
-                  required
-                  fullWidth
-                  id="5yr"
-                  label="5yr Returns(%)"
-                  name="5yr"
-                  value={fiveYrReturns}
-                  error={fiveYrReturnsError}
-                  onChange={e => setFiveYrReturns(e.target.value)}
-                  
-                />
-              </Grid>
-              
-              </Grid>
-              
-              <Button  onClick={handleModalSubmit}>Create Strategy</Button>
-        </Box>
-      </Modal>
+     
     <div className="rectangle-div">  
     {/* <CollapsibleTable/> */}
     <TableContainer component={Paper}>
@@ -446,7 +131,7 @@ const handleModalSubmit=(event)=>{
             
             <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Investment Name</TableCell>
             <TableCell sx={{ fontWeight: 'bold' , fontSize: '16px' }} >Client Id&nbsp;</TableCell>
-            <TableCell sx={{ fontWeight: 'bold' , fontSize: '16px' }}>Original Amount&nbsp;(Rs.) </TableCell>
+            {/* <TableCell sx={{ fontWeight: 'bold' , fontSize: '16px' }}>Original Amount&nbsp;(Rs.) </TableCell> */}
             <TableCell sx={{ fontWeight: 'bold' , fontSize: '16px'}}>Investment Amount&nbsp;(Rs.)</TableCell>
             <TableCell sx={{ fontWeight: 'bold' , fontSize: '16px' }}>Expected Amount&nbsp;(Rs.)</TableCell>
             <TableCell sx={{ fontWeight: 'bold' , fontSize: '16px' }}>Status&nbsp;</TableCell>
@@ -470,7 +155,7 @@ const handleModalSubmit=(event)=>{
        
           <TableCell >{row.investmentName}</TableCell>
           <TableCell >{row.clientId} </TableCell>
-          <TableCell >{row.amount} </TableCell>
+          {/* <TableCell >{row.amount} </TableCell> */}
           <TableCell >{row.investmentAmount}</TableCell>
           <TableCell >{row.expectedAmount}</TableCell>
           <TableCell ><Button sx={{width:'100px',borderRadius:'20px'}} variant="contained" color={row.status === 'Pending' ? 'primary' : (row.status==='Rejected'?'error':'success')}>{row.status}</Button></TableCell>
@@ -652,7 +337,7 @@ const requestsStyle = {
  const handleRequestsClose = () => setRequestsOpen(false);
   return (
     <div>
-      {/* <Button onClick=handleOpen variant='contained'>Investment Requests</Button> */}
+      
       <Modal
         open={modalOpen}
         onClose={handleClose}
@@ -759,6 +444,146 @@ const requestsStyle = {
 }
 
 function ReportsContent({advisorId}) {
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: '#e4f1ff',
+    borderRadius:'20px',
+    boxShadow: 24,
+    p: 4,
+  };   
+const [modalOpen, setModalOpen] = React.useState(false);
+const handleOpen = () => setModalOpen(true);
+const handleClose = () => setModalOpen(false);
+const [strategyName,setStrategyName]=useState('')
+const [clientId,setClientId]=useState('')
+const [investmentId,setInvestmentId]=useState('')
+const [amount,setAmount]=useState('')
+const [investmentAmount,setInvestmentAmount]=useState('')
+const [expectedAmount,setExpectedAmount]=useState('')
+const [Status,setStatus]=useState('')
+const [sixMonReturns,setSixMonReturns]=useState('')
+const [oneYrReturns,setOneYrReturns]=useState('')
+const [threeYrReturns,setThreeYrReturns]=useState('')
+const [fiveYrReturns,setFiveYrReturns]=useState('')
+const [message,setMessage]=useState('')
+
+
+const [strategyNameError,setStrategyNameError]=useState(false)
+const [clientIdError,setClientIdError]=useState(false)
+// const [amountError,setAmountError]=useState(false)
+const [investmentIdError,setInvestmentIdError]=useState(false)
+const [investmentAmountError,setInvestmentAmountError]=useState(false)
+const [expectedAmountError,setExpectedAmountError]=useState(false)
+const [statusError,setStatusError]=useState(false)
+const [sixMonReturnsError,setSixMonReturnsError]=useState(false)
+const [oneYrReturnsError,setOneYrReturnsError]=useState(false)
+const [threeYrReturnsError,setThreeYrReturnsError]=useState(false)
+const [fiveYrReturnsError,setFiveYrReturnsError]=useState(false)
+
+
+
+const handleModalSubmit=(event)=>{
+
+  event.preventDefault();
+  setStrategyNameError(false)
+  setClientIdError(false)
+  setSixMonReturnsError(false)
+  setOneYrReturnsError(false)
+  setThreeYrReturnsError(false)
+  setFiveYrReturnsError(false)
+
+  if(strategyName===""){
+    setStrategyNameError(true)
+    
+  }
+  if(clientId===""){
+    setClientIdError(true)
+    
+  }
+  if(investmentId===""){
+    setInvestmentIdError(true)
+    
+  }
+  if(Status===''){
+    setStatusError(true)
+  
+  }
+  if(investmentAmount===""){
+    setInvestmentAmountError(true)
+    
+  }
+  if(expectedAmount===""){
+    setExpectedAmountError(true)
+    
+  }
+  if(sixMonReturns===""){
+    setSixMonReturnsError(true)
+    
+  }
+  if(oneYrReturns===""){
+    setOneYrReturnsError(true)
+    
+  }
+  if(threeYrReturns===""){
+    setThreeYrReturnsError(true)
+    
+  }
+  if(fiveYrReturns===""){
+    setFiveYrReturnsError(true)
+    return
+  }
+  const strategyData ={
+    "strategyId": "string",
+    "investmentId": investmentId,
+    "investmentAmount": investmentAmount,
+    "expectedAmount": expectedAmount,
+    "investmentName": strategyName,
+    "clientId": clientId,
+    "advisorId": advisorId,
+    "returnPercentage": 10,
+    "returnPercentageAfter6months": sixMonReturns,
+    "returnPercentageAfter1year": oneYrReturns,
+    "returnPercentageAfter3year": threeYrReturns,
+    "returnPercentageAfter5year": fiveYrReturns,
+    "status": "string",
+    "timePeriod": "string",
+    "remarks": "string",
+    "completed": true
+  }
+  axios({
+    method:'post',
+    url:'https://investmentportal.azurewebsites.net/api/strategies/Add?api-version=1',
+    data: strategyData
+}).then((response)=>{
+   console.log(response)
+   setMessage(response.data.message)
+   if(response.data.message="Strategy added successfully."){
+    setStrategyName('')
+    setClientId('')
+    setSixMonReturns('')
+    setOneYrReturns('')
+    setThreeYrReturns('')
+    setFiveYrReturns('')
+    setAmount('')
+    setExpectedAmount('')
+    setInvestmentAmount('')
+    
+   }
+},(error)=>{
+  console.log(error)
+  setMessage(error.response.data.message)
+})
+ 
+
+
+}
+
+
+
   const [listOfRequests,setListOfRequests] = useState([]) 
 
   axios({
@@ -777,11 +602,186 @@ function ReportsContent({advisorId}) {
 
    })
   return (
+<div className='portfolio'>
+<Button  onClick={handleOpen} variant='contained'>Add Strategy</Button>
+  <Modal
+        open={modalOpen}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style} >
+          <CloseIcon color="primary" onClick={handleClose} style={{ position: "absolute", top: "10px", right: "10px" }} />
+          {message?<Typography id="modal-modal-title" variant="h6" component="h2">
+            {message}
+          </Typography>:<><Typography id="modal-modal-title" variant="h6" component="h2">
+            Create New Strategy For Client
+          </Typography>
+          <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                
+                  margin="dense"
+                  autoComplete="given-name"
+                  name="strategyName"
+                  required
+                  fullWidth
+                  value={strategyName}
+                  error={strategyNameError}
+                  onChange={e => setStrategyName(e.target.value)}
+                  id="strategyName"
+                  label="Strategy Name"
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  
+                  margin="dense"
+                  required
+                  fullWidth
+                  id="clientId"
+                  label="Client ID"
+                  name="clientId"
+                  value={clientId}
+                  error={clientIdError}
+                  onChange={e => setClientId(e.target.value)}
+                  
+                />
+              </Grid>
+              
+              </Grid>
+              <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                
+                  margin="dense"
+                  autoComplete="given-name"
+                  name="strategyName"
+                  required
+                  fullWidth
+                  value={investmentId}
+                  error={investmentIdError}
+                  onChange={e => setInvestmentId(e.target.value)}
+                  id="strategyName"
+                  label="Investment ID"
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  
+                  margin="dense"
+                  required
+                  fullWidth
+                  id="investmentAmount"
+                  label="Investment Amount"
+                  name="investmentAmount"
+                  value={investmentAmount}
+                  error={investmentAmountError}
+                  onChange={e => setInvestmentAmount(e.target.value)}
+                  
+                />
+              </Grid>
+              
+              </Grid>
+              
+                <TextField
+                
+                  margin="dense"
+                  autoComplete="given-name"
+                  name="strategyName"
+                  required
+                  fullWidth
+                  value={expectedAmount}
+                  error={expectedAmountError}
+                  onChange={e => setExpectedAmount(e.target.value)}
+                  id="strategyName"
+                  label="Expected Amount"
+                  autoFocus
+                />
+              
+              
+              
+              <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                
+                  margin="dense"
+                  autoComplete="given-name"
+                  name="6m Returns"
+                  required
+                  fullWidth
+                  value={sixMonReturns}
+                  error={sixMonReturnsError}
+                  onChange={e => setSixMonReturns(e.target.value)}
+                  id="6m Returns"
+                  label="6m Returns(%)"
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  
+                  margin="dense"
+                  required
+                  fullWidth
+                  id="1yr"
+                  label="1yr Returns(%) "
+                  name="1yr"
+                  value={oneYrReturns}
+                  error={oneYrReturnsError}
+                  onChange={e => setOneYrReturns(e.target.value)}
+                  
+                />
+              </Grid>
+              
+              </Grid>
+              <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  
+                  margin="dense"
+                  autoComplete="given-name"
+                  name="3yr"
+                  required
+                  fullWidth
+                  value={threeYrReturns}
+                  error={threeYrReturnsError}
+                  onChange={e => setThreeYrReturns(e.target.value)}
+                  id="3yr"
+                  label="3yr Returns(%)"
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+              
+                  margin="dense"
+                  required
+                  fullWidth
+                  id="5yr"
+                  label="5yr Returns(%)"
+                  name="5yr"
+                  value={fiveYrReturns}
+                  error={fiveYrReturnsError}
+                  onChange={e => setFiveYrReturns(e.target.value)}
+                  
+                />
+              </Grid>
+              
+              </Grid>
+              
+              <Button  onClick={handleModalSubmit}>Create Strategy</Button></>}
+        </Box>
+      </Modal>
     <div className="rectangle-div">
+     
      <TableContainer component={Paper}>
       <Table   aria-label="simple table">
         <TableHead>
         <TableRow >
+        <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Investment Id</TableCell>
           <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Client Id</TableCell>
            <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Investment Amount</TableCell>
             <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Time Period</TableCell>
@@ -794,6 +794,7 @@ function ReportsContent({advisorId}) {
           
           <React.Fragment >
         <TableRow>
+          <TableCell>{row.investmentID}</TableCell>
           <TableCell>{row.clientId}</TableCell>
           <TableCell>{row.investmentAmount}</TableCell>
           <TableCell>{row.timePeriod}</TableCell>
@@ -806,6 +807,7 @@ function ReportsContent({advisorId}) {
 
 }
           </TableBody></Table></TableContainer>
+    </div>
     </div>
   );
 }

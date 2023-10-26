@@ -146,7 +146,7 @@ const valueFormatter = (value) => `Rs.${value}`;
         <TableRow >
         <TableCell />
             <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Investment Name</TableCell>
-            <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Original Amount(Rs.)</TableCell>
+            {/* <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Original Amount(Rs.)</TableCell> */}
             <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Investment Amount(Rs.)</TableCell>
             <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Expected Amount(Rs.)</TableCell>
             <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Status</TableCell>
@@ -168,7 +168,7 @@ const valueFormatter = (value) => `Rs.${value}`;
           </IconButton>
         </TableCell>
           <TableCell>{row.investmentName}</TableCell>
-          <TableCell>{row.amount}</TableCell>
+          {/* <TableCell>{row.amount}</TableCell> */}
           <TableCell>{row.investmentAmount}</TableCell>
           <TableCell>{row.expectedAmount}</TableCell>
           <TableCell><Button sx={{width:'100px',borderRadius:'20px'}} variant="contained" color={row.status === 'Pending' ? 'error' : 'primary'}>{row.status}</Button></TableCell>
@@ -322,11 +322,15 @@ const handleModalSubmit=()=>{
     const investmentData={
       
        
+      
+        "investmentID": "string",
         "clientId": clientId,
-        
+        "advisorId": "string",
         "investmentAmount": investmentAmount,
         "investmentType": investmentType,
         "timePeriod": timePeriod,
+        "createdDate": "2023-10-26T13:58:26.103Z"
+      
  
       
     }
@@ -336,7 +340,7 @@ const handleModalSubmit=()=>{
       url:`https://investmentportal.azurewebsites.net/api/investments/New Investment?api-version=1`,
       data:investmentData
     }).then((response)=>{
-      console.log(response.data)
+      console.log(response)
       if(response.data.message==="Investment Successfully Generated"){
         setAdvisorId(response.data.investment.advisorId)
         setMessage("Investment Request Created.Soon Advisor Will Create Strategy For You.")
@@ -345,6 +349,7 @@ const handleModalSubmit=()=>{
       setInvestmentType("")
       setTimePeriod("")
     },(error)=>{
+      console.log(error)
       setMessage(error.response.data)
       setInvestmentAmount("")
       setInvestmentType("")
@@ -422,7 +427,7 @@ const handleModalSubmit=()=>{
                   error={investmentIdError}
                   onChange={e => setInvestmentId(e.target.value)}
                   id="bankName"
-                  label="Investment Id"
+                  label="Strategy Id"
                   autoFocus
                 />
               
@@ -577,9 +582,9 @@ const handleModalSubmit=()=>{
       <Table   aria-label="simple table">
         <TableHead>
         <TableRow >
-           <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Investment Id</TableCell>
-            <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Investment Name</TableCell>
-            <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Original Amount(Rs.)</TableCell>
+           <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Strategy Id</TableCell>
+            <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Strategy Name</TableCell>
+            {/* <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Original Amount(Rs.)</TableCell> */}
             <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Investment Amount(Rs.)</TableCell>
             <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Expected Amount(Rs.)</TableCell>
             <TableCell sx={{ fontWeight: 'bold', fontSize: '16px' }}>Status</TableCell>
@@ -593,7 +598,7 @@ const handleModalSubmit=()=>{
         <TableRow>
           <TableCell>{row.strategyId}</TableCell>
           <TableCell>{row.investmentName}</TableCell>
-          <TableCell>{row.amount}</TableCell>
+          {/* <TableCell>{.amount}</TableCell> */}
           <TableCell>{row.investmentAmount}</TableCell>
           <TableCell>{row.expectedAmount}</TableCell>
           <TableCell><Button sx={{width:'100px',borderRadius:'20px'}} variant="contained" color={row.status === 'Pending' ? 'error' : 'primary'}>{row.status}</Button></TableCell>

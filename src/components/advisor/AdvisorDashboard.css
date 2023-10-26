@@ -9,17 +9,17 @@ body, ul {
 /* Style the overall layout */
 .investorDashboard {
   display: flex;
-  height: 100vh;
+
 }
 
 /* Style the sidebar */
 .sidebar {
   width: 250px;
-  height: 1000%;
+  min-height: 100vh;
   background-color: #ffffff;
   color: rgb(9, 1, 1);
   padding: 20px;
-  position: sticky;
+  
 }
 
 .sidebar h2 {
@@ -62,8 +62,8 @@ line-height: 2.5em;
 
 /* Style the content */
 .content {
-  flex: 1;
-  height: 1000%;
+  flex-grow: 1;
+  
   padding: 20px;
   box-shadow: 5px 0px 15px #00000040;
   background-color: #E4F1FF;
